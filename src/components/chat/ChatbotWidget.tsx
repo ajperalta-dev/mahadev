@@ -18,7 +18,7 @@ export function ChatbotWidget({ onOpenBooking }: { onOpenBooking: () => void }) 
   const logRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const wasOpened = useRef(false);
-  const mark = `/brand/identity-alpha/alpha-isotipo-${isDark ? 'oscuro' : 'claro'}.svg`;
+  const mark = `/brand/maha-dev/maha-dev-isotipo-${isDark ? 'oscuro' : 'claro'}.svg`;
 
   useEffect(() => {
     if (open) { wasOpened.current = true; inputRef.current?.focus(); }
@@ -48,9 +48,9 @@ export function ChatbotWidget({ onOpenBooking }: { onOpenBooking: () => void }) 
   };
   const prompts = es ? ['¿Por dónde empiezo?', 'Quiero una tutoría', 'Necesito consultoría'] : ['Where do I start?', 'I want tutoring', 'I need consulting'];
   return <>
-    <button ref={triggerRef} hidden={open} className="widget-launcher assistant-launcher" onClick={() => setOpen(true)} aria-expanded={open} aria-controls="alpha-assistant" aria-label={es ? 'Abrir asistente ALPHA' : 'Open ALPHA assistant'}><img src={`/brand/identity-alpha/alpha-isotipo-${isDark ? 'claro' : 'oscuro'}.svg`} alt="" /><span>{es ? 'Asistente ALPHA' : 'ALPHA assistant'}</span></button>
-    {open && <section id="alpha-assistant" className="assistant-panel" aria-label={es ? 'Asistente ALPHA' : 'ALPHA assistant'} onKeyDown={event => { if (event.key === 'Escape') setOpen(false); }}>
-      <header className="assistant-header"><img src={mark} alt="" /><div><h2>{es ? 'Asistente ALPHA' : 'ALPHA assistant'}</h2><p>{configured === false ? (es ? 'Puedes contactar también con nuestro equipo' : 'You can also contact our team') : (es ? 'Un punto de partida para tus ideas' : 'A starting point for your ideas')}</p></div><button className="icon-button" onClick={() => setOpen(false)} aria-label={es ? 'Cerrar asistente' : 'Close assistant'}><X size={18} /></button></header>
+    <button ref={triggerRef} hidden={open} className="widget-launcher assistant-launcher" onClick={() => setOpen(true)} aria-expanded={open} aria-controls="alpha-assistant" aria-label={es ? 'Abrir asistente MAHA DEV' : 'Open MAHA DEV assistant'}><img src={`/brand/maha-dev/maha-dev-isotipo-${isDark ? 'claro' : 'oscuro'}.svg`} alt="" /><span>{es ? 'Asistente MAHA DEV' : 'MAHA DEV assistant'}</span></button>
+    {open && <section id="alpha-assistant" className="assistant-panel" aria-label={es ? 'Asistente MAHA DEV' : 'MAHA DEV assistant'} onKeyDown={event => { if (event.key === 'Escape') setOpen(false); }}>
+      <header className="assistant-header"><img src={mark} alt="" /><div><h2>{es ? 'Asistente MAHA DEV' : 'MAHA DEV assistant'}</h2><p>{configured === false ? (es ? 'Puedes contactar también con nuestro equipo' : 'You can also contact our team') : (es ? 'Un punto de partida para tus ideas' : 'A starting point for your ideas')}</p></div><button className="icon-button" onClick={() => setOpen(false)} aria-label={es ? 'Cerrar asistente' : 'Close assistant'}><X size={18} /></button></header>
       <div ref={logRef} className="assistant-log" role="log" aria-live="polite" aria-relevant="additions">
         <p className="assistant-intro">{es ? 'Hola. Cuéntame qué quieres conseguir y te ayudaré a encontrar una solución, una consultoría o una tutoría para avanzar.' : 'Hello. Tell me what you want to achieve and I’ll help you find a solution, consultation or tutoring to move forward.'}</p>
         {messages.map(message => <p key={message.id} className={`chat-message ${message.role === 'user' ? 'chat-message--user' : ''}`}>{message.content}</p>)}

@@ -7,7 +7,7 @@ export function AboutPage({ onOpenBooking }: { onOpenBooking: () => void }) {
   const es = lang === 'es';
   useEffect(() => {
     const previous = document.title;
-    document.title = es ? 'Nosotros | Agustín Peralta · ALPHA' : 'About | Agustín Peralta · ALPHA';
+    document.title = es ? 'Nosotros | Agustín Peralta · MAHA DEV' : 'About | Agustín Peralta · MAHA DEV';
     return () => { document.title = previous; };
   }, [es]);
 
@@ -16,7 +16,7 @@ export function AboutPage({ onOpenBooking }: { onOpenBooking: () => void }) {
     <div className="about-profile">
       <figure className="about-portrait">
         <img src="/brand/agustin-peralta.png" alt="Agustín Peralta" width="240" height="427" />
-        <figcaption>ALPHA · {es ? 'Dirección y consultoría' : 'Leadership & consulting'}</figcaption>
+        <figcaption>MAHA DEV · {es ? 'Dirección y consultoría' : 'Leadership & consulting'}</figcaption>
       </figure>
       <div className="about-copy">
         <p className="about-label">{es ? 'Nosotros' : 'About us'}</p>
@@ -38,8 +38,8 @@ export function AboutPage({ onOpenBooking }: { onOpenBooking: () => void }) {
     <section className="about-approach" aria-labelledby="about-approach-title">
       <h2 id="about-approach-title">{es ? 'Dirección cercana, capacidad para escalar' : 'Direct leadership, room to scale'}</h2>
       <p>{es
-        ? 'En ALPHA, acompaño cada proyecto desde la definición estratégica hasta su ejecución. Combinando la visión estratégica y la dirección directa de proyectos con el respaldo de una red especializada de partners técnicos y consultores senior para escalar la ejecución según la complejidad de cada desafío.'
-        : 'At ALPHA, I guide every project from strategic definition through execution. I combine strategic vision and direct project leadership with the support of a specialized network of technical partners and senior consultants, scaling execution to match the complexity of each challenge.'}</p>
+        ? 'En MAHA DEV, acompaño cada proyecto desde la definición estratégica hasta su ejecución. Combinando la visión estratégica y la dirección directa de proyectos con el respaldo de una red especializada de partners técnicos y consultores senior para escalar la ejecución según la complejidad de cada desafío.'
+        : 'At MAHA DEV, I guide every project from strategic definition through execution. I combine strategic vision and direct project leadership with the support of a specialized network of technical partners and senior consultants, scaling execution to match the complexity of each challenge.'}</p>
     </section>
   </article>;
 }

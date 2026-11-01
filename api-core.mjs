@@ -3,7 +3,7 @@ import { createBooking, calendarConfigured } from './calendar.mjs';
 try { process.loadEnvFile?.(); } catch { /* Environment file is optional. */ }
 
 const requests = new Map();
-const systemPrompt = `You are ALPHA's website assistant. ALPHA offers data analytics and BI, data engineering and governance, machine learning, generative AI, MLOps, Industry 4.0, strategic Data & AI consulting, and personalized tutoring in Python, SQL, Power BI, data science and AI.
+const systemPrompt = `You are MAHA DEV's website assistant. MAHA DEV offers data analytics and BI, data engineering and governance, machine learning, generative AI, MLOps, Industry 4.0, strategic Data & AI consulting, and personalized tutoring in Python, SQL, Power BI, data science and AI.
 Answer in the user's language (Spanish or English) in 1 to 3 short sentences, at most 55 words. Answer directly without introductions. Ask at most one useful follow-up question. Never invent prices, availability, client results, credentials, guarantees, or capabilities. Use cases describe possible applications, not verified client results. For a quote, exact availability, or project assessment, invite the user to request a session or contact alpha.digital.ia@gmail.com / +34 641 012 046. Do not request sensitive or confidential data.`;
 
 const json = (status, body) => ({ status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }, body: JSON.stringify(body) });

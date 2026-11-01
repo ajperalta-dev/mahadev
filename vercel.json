@@ -9,6 +9,7 @@
   "rewrites": [
     { "source": "/nosotros", "destination": "/index.html" },
     { "source": "/nosotros/", "destination": "/index.html" },
+    { "source": "/soluciones/:path*", "destination": "/index.html" },
     { "source": "/api/:path*", "destination": "/api/index?route=:path*" }
   ]
 }

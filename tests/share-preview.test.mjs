@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-test('Social preview references the exported ALPHA artwork at an absolute public URL', () => {
+test('Social preview references the exported MAHA DEV artwork at an absolute public URL', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  const url = 'https://alpha-seven-nu.vercel.app/brand/identity-alpha/alpha-share-isotipo.png';
+  const url = 'https://alpha-seven-nu.vercel.app/brand/maha-dev/share.png';
   assert.ok(html.includes(`property="og:image" content="${url}"`));
   assert.ok(html.includes(`name="twitter:image" content="${url}"`));
-  const png = readFileSync(new URL('../public/brand/identity-alpha/alpha-share-isotipo.png', import.meta.url));
+  const png = readFileSync(new URL('../public/brand/maha-dev/share.png', import.meta.url));
   assert.equal(png.subarray(1, 4).toString(), 'PNG');
   assert.equal(png.readUInt32BE(16), 1200);
   assert.equal(png.readUInt32BE(20), 630);

@@ -49,7 +49,7 @@ export function Hero({ onOpenBooking }: { onOpenBooking: () => void }) {
         <p className="hero-reassurance" data-intro-reveal="details">{es ? 'Estrategia, desarrollo e implementación. A tu lado en cada etapa.' : 'Strategy, development and implementation. With you at every stage.'}</p>
       </div>
       <div className="transformation-stage">
-        <div className="transformation-signature"><img src="/brand/identity-alpha/alpha-isotipo-oscuro.svg" alt="" width="40" height="40" data-intro-destination /><span data-intro-reveal="details">{es ? 'El cambio toma forma.' : 'Change takes shape.'}</span></div>
+        <div className="transformation-signature"><img src="/brand/maha-dev/maha-dev-circular-oscuro.svg" alt="" width="40" height="40" data-intro-destination /><span data-intro-reveal="details">{es ? 'El cambio toma forma.' : 'Change takes shape.'}</span></div>
         <div className="transformation-controls" data-intro-reveal="details">
           <p className="transformation-description" aria-live="polite">{descriptions[mode]}</p>
           <div className="transformation-control-row">

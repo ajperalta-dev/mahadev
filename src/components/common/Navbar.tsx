@@ -36,7 +36,7 @@ export function Navbar({ onOpenBooking }: { onOpenBooking: () => void }) {
   const links = [[`${home}#services`, 'nav.services'], [`${home}#cases`, 'nav.cases'], [`${home}#methodology`, 'nav.methodology'], ['/nosotros', 'nav.about'], [`${home}#contact`, 'nav.contact']];
   return <header className={`site-header${hidden && !open ? ' is-hidden' : ''}`} data-intro-reveal="nav">
     <div className="shell nav-row">
-      <a href={`${home}#hero`} className="brand-home" aria-label={lang === 'es' ? 'ALPHA, inicio' : 'ALPHA, home'} onClick={() => setOpen(false)}><BrandLockup darkSurface /></a>
+      <a href={`${home}#hero`} className="brand-home" aria-label={lang === 'es' ? 'MAHA DEV, inicio' : 'MAHA DEV, home'} onClick={() => setOpen(false)}><BrandLockup darkSurface /></a>
       <nav className="desktop-nav" aria-label={lang === 'es' ? 'Navegación principal' : 'Main navigation'}>{links.map(([href, key]) => <a key={href} href={href} aria-current={href === "/nosotros" && home ? "page" : undefined}>{t(key)}</a>)}</nav>
       <div className="nav-actions">
         <button className="language-toggle" onClick={() => setLang(lang === 'es' ? 'en' : 'es')} aria-label={lang === 'es' ? 'Change language to English' : 'Cambiar idioma a español'}>{lang.toUpperCase()}</button>

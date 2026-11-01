@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const sceneSelector = '#services, #cases, #methodology, #faq, #contact';
-const groupSelector = '.section-heading, .faq-intro, .contact-intro, .service-tools, .result-count, .service-card, .services-note, .case-selector, .case-showcase, .case-invitation, .method-steps, .method-detail, .method-footer, .faq-item, .contact-form-panel, .footer-main, .footer-bottom';
+const sceneSelector = '#services, #cases, #methodology, #contact';
+const groupSelector = '.section-heading, .contact-intro, .solution-toolbar, .solution-card, .services-note, .case-selector, .case-showcase, .case-invitation, .method-steps, .method-detail, .method-footer, .contact-form-panel, .footer-main, .footer-bottom';
 
 /** A single owner for native-scroll reveals, ambient motion and their cleanup. */
 export function useSectionReveal(enabled = true) {

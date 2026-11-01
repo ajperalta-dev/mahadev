@@ -20,7 +20,7 @@ export function bookingEvent(data) {
   const escape = value => value.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
   return {
     id: createHash('sha256').update(`${data.email.trim().toLowerCase()}|${start.toISO()}`).digest('hex'),
-    summary: `ALPHA · ${data.serviceCategory.trim()} · ${data.fullName.trim()}`,
+    summary: `MAHA DEV · ${data.serviceCategory.trim()} · ${data.fullName.trim()}`,
     description: fields.map(key => `${key}: ${escape(data[key])}`).join('\n'),
     start: { dateTime: start.toISO(), timeZone: zone },
     end: { dateTime: start.plus({ minutes: 30 }).toISO(), timeZone: zone },

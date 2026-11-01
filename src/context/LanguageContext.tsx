@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { advisoryServices } from '../data/advisoryServices';
-import type { Language, ServiceItem, TeamProfile, CaseStudyItem } from '../types';
+import { transformationServices } from '../data/transformationServices';
+import type { Language, TeamProfile, CaseStudyItem } from '../types';
 
 import { LanguageContext } from './language';
 
 const translations: Record<Language, Record<string, string>> = {
   es: {
     // Brand & Taglines
-    'brand.name': 'ALPHA',
+    'brand.name': 'MAHA DEV',
     'brand.tagline': 'Digital Transformation',
     'brand.slogan': 'Ingeniería de Datos, Inteligencia Artificial y Soluciones Avanzadas de Industria 4.0',
 
@@ -55,7 +55,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.header.title': 'Ingeniería, datos y aprendizaje continuo',
     'about.header.desc': 'Combinamos la solidez metodológica y la visión de procesos de la Ingeniería Industrial con la vanguardia técnica en Inteligencia Artificial, Big Data y MLOps.',
     'about.story.title': 'Nuestra Filosofía: El dato como activo productivo de ingeniería',
-    'about.story.p1': 'En ALPHA Digital Transformation no creemos en la Inteligencia Artificial como un artificio teórico, sino como una herramienta de ingeniería de precisión orientada a optimizar procesos, multiplicar márgenes y reducir tiempos de parada.',
+    'about.story.p1': 'En MAHA DEV Digital Transformation no creemos en la Inteligencia Artificial como un artificio teórico, sino como una herramienta de ingeniería de precisión orientada a optimizar procesos, multiplicar márgenes y reducir tiempos de parada.',
     'about.story.p2': 'Nuestro enfoque conecta procesos, arquitectura de datos y desarrollo de soluciones. Completamos cada iniciativa con documentación y transferencia de conocimiento para que puedas seguir avanzando con autonomía.',
     'about.pillar1.title': 'Rigor de Ingeniería Industrial',
     'about.pillar1.desc': 'Enfoque centrado en lean operations, cuello de botella, throughput y métricas operacionales reales.',
@@ -101,7 +101,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.result.savings': 'Ahorro Anual Estimado:',
     'calc.result.efficiency': 'Aumento de Eficiencia Operativa:',
     'calc.result.payback': 'Período Estimado de Amortización:',
-    'calc.result.note': '* Estimaciones basadas en benchmarks de proyectos previos de ALPHA Digital Transformation en sectores comparables.',
+    'calc.result.note': '* Estimaciones basadas en benchmarks de proyectos previos de MAHA DEV Digital Transformation en sectores comparables.',
     'calc.cta': 'Agendar auditoría para validar estas cifras',
 
     // Case Studies
@@ -144,19 +144,19 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.success.msg': 'Creamos la sesión en Google Calendar y solicitamos el envío de la invitación a tu correo con los detalles del formulario.',
 
     // Chatbot
-    'chat.header.name': 'ALPHA AI Assistant',
+    'chat.header.name': 'MAHA DEV AI Assistant',
     'chat.header.status': 'Guía de servicios · Respuestas automáticas',
-    'chat.welcome': 'Hola, soy el asistente virtual de ALPHA Digital Transformation. ¿En qué podemos potenciar tu empresa hoy?',
+    'chat.welcome': 'Hola, soy el asistente virtual de MAHA DEV Digital Transformation. ¿En qué podemos potenciar tu empresa hoy?',
     'chat.prompt.services': '¿Qué servicios ofrecen?',
     'chat.prompt.industry40': '¿Qué experiencia tienen en Industria 4.0?',
     'chat.prompt.pricing': '¿Cómo funcionan sus tarifas?',
     'chat.prompt.book': 'Deseo agendar una reunión técnica',
     'chat.input.placeholder': 'Escribe tu consulta...',
-    'chat.typing': 'ALPHA AI está analizando...',
+    'chat.typing': 'MAHA DEV AI está analizando...',
 
     // WhatsApp
     'whatsapp.tooltip': '¿Prefieres conversar directamente? Escríbenos a WhatsApp (+34 641 012 046)',
-    'whatsapp.defaultMsg': 'Hola ALPHA Digital Transformation, deseo solicitar información sobre sus servicios de Data e IA.',
+    'whatsapp.defaultMsg': 'Hola MAHA DEV Digital Transformation, deseo solicitar información sobre sus servicios de Data e IA.',
 
     // Footer
     'footer.rights': 'Todos los derechos reservados.',
@@ -167,7 +167,7 @@ const translations: Record<Language, Record<string, string>> = {
   },
   en: {
     // Brand & Taglines
-    'brand.name': 'ALPHA',
+    'brand.name': 'MAHA DEV',
     'brand.tagline': 'Digital Transformation',
     'brand.slogan': 'Data Engineering, Artificial Intelligence & Advanced Industry 4.0 Solutions',
 
@@ -215,7 +215,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.header.title': 'Engineering, data and continuous learning',
     'about.header.desc': 'Bridging the process discipline of Industrial Engineering with state-of-the-art expertise in Artificial Intelligence, Big Data, and MLOps.',
     'about.story.title': 'Our Philosophy: Data as a high-precision engineering asset',
-    'about.story.p1': 'At ALPHA Digital Transformation, we do not view AI as a speculative experiment, but as a high-precision engineering lever designed to optimize operations, multiply margins, and eliminate machine downtime.',
+    'about.story.p1': 'At MAHA DEV Digital Transformation, we do not view AI as a speculative experiment, but as a high-precision engineering lever designed to optimize operations, multiply margins, and eliminate machine downtime.',
     'about.story.p2': 'Our approach connects processes, data architecture and solution development. Documentation and knowledge transfer complete each initiative so you can keep moving forward independently.',
     'about.pillar1.title': 'Industrial Engineering Rigor',
     'about.pillar1.desc': 'Focused on operational bottlenecks, process lean methodology, throughput, and verified financial ROI.',
@@ -261,7 +261,7 @@ const translations: Record<Language, Record<string, string>> = {
     'calc.result.savings': 'Estimated Annual Savings:',
     'calc.result.efficiency': 'Operational Efficiency Boost:',
     'calc.result.payback': 'Estimated Payback Period:',
-    'calc.result.note': '* Projections based on past client benchmarks delivered by ALPHA Digital Transformation in equivalent enterprise sectors.',
+    'calc.result.note': '* Projections based on past client benchmarks delivered by MAHA DEV Digital Transformation in equivalent enterprise sectors.',
     'calc.cta': 'Book Technical Audit to Validate Figures',
 
     // Case Studies
@@ -304,19 +304,19 @@ const translations: Record<Language, Record<string, string>> = {
     'booking.success.msg': 'Your session was created in Google Calendar and the invitation was requested for your email with your form details.',
 
     // Chatbot
-    'chat.header.name': 'ALPHA AI Assistant',
+    'chat.header.name': 'MAHA DEV AI Assistant',
     'chat.header.status': 'Service guide · Automated replies',
-    'chat.welcome': 'Hello, I am ALPHA Digital Transformation\'s virtual assistant. How can we empower your enterprise today?',
+    'chat.welcome': 'Hello, I am MAHA DEV Digital Transformation\'s virtual assistant. How can we empower your enterprise today?',
     'chat.prompt.services': 'What services do you provide?',
     'chat.prompt.industry40': 'What is your Industry 4.0 track record?',
     'chat.prompt.pricing': 'How do your consulting fees work?',
     'chat.prompt.book': 'I want to schedule a technical meeting',
     'chat.input.placeholder': 'Ask your question...',
-    'chat.typing': 'ALPHA AI is analyzing...',
+    'chat.typing': 'MAHA DEV AI is analyzing...',
 
     // WhatsApp
     'whatsapp.tooltip': 'Prefer direct messaging? Chat on WhatsApp (+34 641 012 046)',
-    'whatsapp.defaultMsg': 'Hello ALPHA Digital Transformation, I would like to request details about your Data and AI services.',
+    'whatsapp.defaultMsg': 'Hello MAHA DEV Digital Transformation, I would like to request details about your Data and AI services.',
 
     // Footer
     'footer.rights': 'All rights reserved.',
@@ -327,258 +327,6 @@ const translations: Record<Language, Record<string, string>> = {
   }
 };
 
-// 6 Structured Services from Foundations to Cutting-Edge (Level 1 to 6)
-// Inspired by Merovingian Data's solutions (BI, Engineering, ML, GenAI, MLOps, Industry 4.0)
-const servicesData: ServiceItem[] = [
-  {
-    id: 'data-analytics-bi',
-    level: 1,
-    levelBadge: {
-      es: 'NIVEL 1 · FUNDAMENTAL',
-      en: 'LEVEL 1 · FOUNDATIONAL',
-    },
-    title: {
-      es: 'Data Analytics & Business Intelligence Moderno',
-      en: 'Modern Data Analytics & Business Intelligence',
-    },
-    subtitle: {
-      es: 'De datos dispersos a dashboards ejecutivos de toma de decisiones en tiempo real',
-      en: 'From fragmented spreadsheets to real-time executive decision dashboards',
-    },
-    description: {
-      es: 'Construimos la base analítica de tu organización: modelado dimensional (estrella/copo de nieve), diseño de métricas clave (KPIs corporativos), cuadros de mando automatizados de alta fidelidad y alertas inteligentes que sustituyen los reportes manuales.',
-      en: 'We establish your firm\'s analytical bedrock: dimensional modeling (star/snowflake), corporate KPI taxonomy, high-fidelity automated dashboards, and proactive alerts that eliminate error-prone manual spreadsheets.',
-    },
-    deliverables: {
-      es: [
-        'Dashboards interactivos en Power BI, Tableau o Looker',
-        'Diccionario unificado de métricas y Single Source of Truth',
-        'Automatización 100% de la ingesta y refresco de reportes',
-        'Capacitación ejecutiva y autoservicio analítico para equipos',
-      ],
-      en: [
-        'Interactive dashboards in Power BI, Tableau, or Looker',
-        'Unified business metric dictionary & Single Source of Truth',
-        '100% automation of report ingestion and refresh cycles',
-        'Executive training & self-service analytics enablement',
-      ],
-    },
-    businessImpact: {
-      es: 'Reducción de hasta un 75% en tiempo de generación de informes y visibilidad unificada de rentabilidad por línea de negocio.',
-      en: 'Up to 75% reduction in manual reporting overhead with unified visibility into business unit profitability.',
-    },
-    techStack: ['Power BI', 'Tableau', 'SQL Server', 'PostgreSQL', 'dbt', 'DAX', 'Looker Studio'],
-    iconName: 'BarChart3',
-    featured: false,
-  },
-  {
-    id: 'data-engineering',
-    level: 2,
-    levelBadge: {
-      es: 'NIVEL 2 · ARQUITECTURA',
-      en: 'LEVEL 2 · ARCHITECTURE',
-    },
-    title: {
-      es: 'Data Engineering & Gobernanza de Lakehouses',
-      en: 'Data Engineering & Lakehouse Governance',
-    },
-    subtitle: {
-      es: 'Infraestructura de datos robusta, escalable y gobernada para la alta demanda',
-      en: 'Robust, governed, high-throughput cloud data pipelines and storage',
-    },
-    description: {
-      es: 'Diseño e implementación de pipelines ETL/ELT resilientes en la nube y arquitecturas Lakehouse modernas (Medallion architecture: Bronze, Silver, Gold). Garantizamos calidad de datos, linaje, cumplimiento normativo GDPR y disponibilidad en milisegundos.',
-      en: 'Design and deployment of resilient cloud ETL/ELT pipelines and modern Lakehouse architectures (Medallion pattern: Bronze, Silver, Gold). We enforce strict data quality, governance, lineage, and sub-second querying latency.',
-    },
-    deliverables: {
-      es: [
-        'Pipelines de datos automatizados por lotes (Batch) y en tiempo real (Streaming)',
-        'Modern Data Stack sobre Snowflake, Databricks o BigQuery',
-        'Framework de Data Quality y detección proactiva de datos anómalos',
-        'Catálogo de datos corporativo con control de accesos RBAC y linaje',
-      ],
-      en: [
-        'Automated batch and real-time streaming data ingestion pipelines',
-        'Modern Data Stack implementation on Snowflake, Databricks, or BigQuery',
-        'Data Quality framework with automated anomaly and drift detection',
-        'Enterprise data catalog with RBAC access control and lineage tracking',
-      ],
-    },
-    businessImpact: {
-      es: 'Eliminación total de silos de información y reducción de costes de infraestructura cloud de hasta un 35%.',
-      en: 'Total elimination of data silos and up to 35% reduction in cloud infrastructure spend.',
-    },
-    techStack: ['Databricks', 'Snowflake', 'Apache Spark', 'Python', 'Apache Airflow', 'AWS / Azure / GCP', 'Kafka'],
-    iconName: 'Database',
-    featured: false,
-  },
-  {
-    id: 'machine-learning',
-    level: 3,
-    levelBadge: {
-      es: 'NIVEL 3 · ANALÍTICA AVANZADA',
-      en: 'LEVEL 3 · ADVANCED ANALYTICS',
-    },
-    title: {
-      es: 'Machine Learning & Modelos Predictivos',
-      en: 'Machine Learning & Predictive Analytics',
-    },
-    subtitle: {
-      es: 'De entender el pasado a anticipar el futuro con precisión algorítmica',
-      en: 'Moving from retrospective reporting to forward-looking algorithmic precision',
-    },
-    description: {
-      es: 'Desarrollamos algoritmos de aprendizaje automático a medida para resolver retos críticos: previsión de demanda para cadenas de suministro, detección de fuga de clientes (Churn), scoring de riesgo crediticio, modelos de fijación dinámica de precios y visión computacional.',
-      en: 'We engineer tailored machine learning models addressing critical business friction: demand forecasting, customer churn prevention, credit risk scoring, dynamic pricing engines, and industrial computer vision.',
-    },
-    deliverables: {
-      es: [
-        'Modelos de forecasting multivariable con intervalos de confianza',
-        'Algoritmos de clasificación, clustering y propensión de compra',
-        'Sistemas de visión artificial para control de calidad e inspección óptica',
-        'Explicabilidad algorítmica (SHAP/LIME) para auditoría de decisiones',
-      ],
-      en: [
-        'Multivariate forecasting models with calibrated confidence bounds',
-        'Propensity, churn, and recommendation classification algorithms',
-        'Computer vision systems for automated optical quality inspection',
-        'Model explainability framework (SHAP/LIME) for regulatory scrutiny',
-      ],
-    },
-    businessImpact: {
-      es: 'Incremento de precisión en forecasting del 30%+ y ahorro sustancial en obsolescencia de stock y roturas de inventario.',
-      en: '30%+ surge in forecasting accuracy, substantially cutting stockouts and excess inventory costs.',
-    },
-    techStack: ['Python', 'Scikit-learn', 'PyTorch', 'XGBoost', 'OpenCV', 'Pandas', 'MLflow'],
-    iconName: 'Cpu',
-    featured: true,
-  },
-  {
-    id: 'genai-enterprise',
-    level: 4,
-    levelBadge: {
-      es: 'NIVEL 4 · IA GENERATIVA',
-      en: 'LEVEL 4 · GENERATIVE AI',
-    },
-    title: {
-      es: 'IA Generativa & Agentes Autónomos Empresariales',
-      en: 'Generative AI & Autonomous Enterprise Agents',
-    },
-    subtitle: {
-      es: 'Sistemas RAG privados, asistentes cognitivos internos y agentes inteligentes de flujo',
-      en: 'Private RAG systems, cognitive enterprise copilots, and workflow AI agents',
-    },
-    description: {
-      es: 'Implantamos soluciones de IA Generativa seguras, privadas y conectadas con los documentos y bases de datos de tu compañía. Creamos sistemas RAG (Retrieval-Augmented Generation) con evaluación de calidad y trazabilidad de fuentes y agentes autónomos capaces de razonar y ejecutar tareas complejas de negocio.',
-      en: 'We deploy secure, enterprise-grade Generative AI grounded exclusively in your company documents and core databases. Zero data leakage, hallucination-resistant RAG architectures, and autonomous reasoning agents that execute multi-step workflows.',
-    },
-    deliverables: {
-      es: [
-        'Arquitectura RAG corporativa con bases de datos vectoriales privadas',
-        'Copilotos internos para equipos de ingeniería, legal, ventas y operaciones',
-        'Agentes autónomos orquestados con herramientas y APIs internas',
-        'Fine-tuning y cuantización de modelos abiertos (Llama, Mistral) on-premise',
-      ],
-      en: [
-        'Corporate RAG architecture with secured enterprise vector stores',
-        'Internal intelligence copilots for engineering, legal, sales, and operations',
-        'Autonomous task agents integrated with proprietary internal APIs',
-        'Private fine-tuning and quantization of open weights (Llama, Mistral)',
-      ],
-    },
-    businessImpact: {
-      es: 'Aumento del 40% en la productividad de equipos cualificados y respuestas instantáneas sobre petabytes de conocimiento técnico corporativo.',
-      en: '40% acceleration in knowledge worker productivity with instant, cited answers across petabytes of technical documentation.',
-    },
-    techStack: ['LangChain', 'LlamaIndex', 'Pinecone', 'ChromaDB', 'OpenAI API', 'Hugging Face', 'Ollama'],
-    iconName: 'Sparkles',
-    featured: true,
-  },
-  {
-    id: 'mlops-scale',
-    level: 5,
-    levelBadge: {
-      es: 'NIVEL 5 · DESPLIEGUE CONTINUO',
-      en: 'LEVEL 5 · PRODUCTION ENGINEERING',
-    },
-    title: {
-      es: 'MLOps & Arquitectura de Escalado en Producción',
-      en: 'MLOps & Production Scaling Architecture',
-    },
-    subtitle: {
-      es: 'Del experimento a producción continua: CI/CD, telemetría y monitorización de drift',
-      en: 'From experimental notebooks to continuous production: CI/CD, telemetry & drift monitoring',
-    },
-    description: {
-      es: 'Garantizamos que los modelos de IA se mantengan fiables, seguros y precisos a lo largo del tiempo. Implementamos pipelines automatizados de CI/CD para Machine Learning, Feature Stores centralizados, monitorización en tiempo real de data drift y escalado automático con baja latencia.',
-      en: 'We ensure AI and ML assets maintain reliability, low inference latency, and high accuracy over time. We automate CI/CD pipelines for models, unified Feature Stores, live telemetry for data and concept drift, and auto-scaling container clusters.',
-    },
-    deliverables: {
-      es: [
-        'Infraestructura de inferencia en tiempo real y microservicios gRPC/REST',
-        'Pipelines de CI/CD para reentrenamiento continuo y testeo automático',
-        'Monitorización de métricas de negocio, data drift y latencia P99',
-        'Contenedores optimizados y clusters Kubernetes (EKS / AKS / GKE)',
-      ],
-      en: [
-        'Sub-second real-time inference microservices via gRPC and REST APIs',
-        'Automated CI/CD pipelines for continuous retraining and unit testing',
-        'Live telemetry for business KPIs, concept drift, and P99 latency SLA',
-        'Optimized containers and orchestration on Kubernetes (EKS/AKS/GKE)',
-      ],
-    },
-    businessImpact: {
-      es: 'Reducción de meses a días en el ciclo de lanzamiento de modelos y garantía de disponibilidad del 99.9% en servicios críticos.',
-      en: 'Deployment velocity accelerated from quarters to days with 99.9% uptime guarantees for mission-critical services.',
-    },
-    techStack: ['MLflow', 'Docker', 'Kubernetes', 'KubeFlow', 'Triton Server', 'FastAPI', 'Prometheus'],
-    iconName: 'Server',
-    featured: false,
-  },
-  {
-    id: 'industry-40',
-    level: 6,
-    levelBadge: {
-      es: 'NIVEL 6 · INDUSTRIA 4.0',
-      en: 'LEVEL 6 · INDUSTRY 4.0 & OT',
-    },
-    title: {
-      es: 'Industria 4.0 & Transformación Digital de Planta',
-      en: 'Industry 4.0 & Operational Plant Digitalization',
-    },
-    subtitle: {
-      es: 'Mantenimiento predictivo, IoT industrial, gemelos digitales y convergencia IT/OT',
-      en: 'Predictive maintenance, industrial IoT, digital twins, and IT/OT convergence',
-    },
-    description: {
-      es: 'Nuestra especialidad diferencial: unimos el rigor de la Ingeniería Industrial con la vanguardia de la IA. Conectamos sensores industriales, PLCs, sistemas SCADA y MES a modelos inteligentes para predecir fallos mecánicos antes de que ocurran, optimizar OEE y simular líneas de fabricación.',
-      en: 'Our premier differentiator: uniting Industrial Engineering rigor with bleeding-edge AI. We integrate industrial sensors, PLCs, SCADA, and MES systems with machine intelligence to forecast machine breakdowns, optimize OEE, and build digital plant twins.',
-    },
-    deliverables: {
-      es: [
-        'Modelos de Mantenimiento Predictivo con sensores de vibración, temperatura y acústica',
-        'Optimización algorítmica de parámetros de proceso para maximizar OEE',
-        'Arquitectura de convergencia IT/OT segura con protocolos MQTT e industrial OPC UA',
-        'Gemelos Digitales (Digital Twins) para simulación de flujos productivos',
-      ],
-      en: [
-        'Predictive Maintenance algorithms analyzing vibration, acoustic, and thermal telemetry',
-        'Real-time process parameter optimization to maximize OEE and plant yield',
-        'Hardened IT/OT convergence architectures running MQTT and industrial OPC UA',
-        'Digital Twins simulating plant throughput and manufacturing scenarios',
-      ],
-    },
-    businessImpact: {
-      es: 'Reducción de paradas no programadas en planta de entre un 35% y un 50%, prolongando la vida útil del activo y reduciendo costes de repuestos.',
-      en: '35% to 50% drop in unscheduled plant downtime, extending machinery lifespan while optimizing critical spare parts inventory.',
-    },
-    techStack: ['OPC UA', 'MQTT', 'Industrial IoT', 'Time-Series DB', 'Edge AI', 'Digital Twins', 'PyTorch'],
-    iconName: 'Factory',
-    featured: true,
-  },
-];
-
-// Team profiles featuring Industrial Engineering and Senior Data Scientists with Big Data & AI Masters
 const teamData: TeamProfile[] = [
   {
     id: 'lead-ds-industrial',
@@ -784,7 +532,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         lang,
         setLang: handleSetLang,
         t,
-        services: [...servicesData, ...advisoryServices],
+        services: transformationServices,
         team: teamData,
         caseStudies: caseStudiesData,
       }}

@@ -4,6 +4,6 @@ export function BrandLockup({ size = 'nav', darkSurface = false }: { size?: 'nav
   const { isDark } = useTheme();
   const useDarkArtwork = darkSurface || isDark;
   return <span className={`brand-lockup brand-lockup--${size}`}>
-    <img src={`/brand/identity-alpha/alpha-horizontal-${useDarkArtwork ? 'oscuro' : 'claro'}.svg`} alt="ALPHA" width="880" height="256" />
+    <img src={`/brand/maha-dev/maha-dev-horizontal-${useDarkArtwork ? 'oscuro' : 'claro'}.svg`} alt="MAHA DEV" width="870" height="102" />
   </span>;
 }

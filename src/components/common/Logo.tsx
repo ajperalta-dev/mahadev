@@ -15,6 +15,6 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showTex
     ? { sm: 'w-44', md: 'w-48', lg: 'w-64', hero: 'w-full max-w-[440px]' }[size]
     : { sm: 'w-8', md: 'w-12', lg: 'w-24', hero: 'w-full max-w-[440px]' }[size];
   const mark = showText ? 'horizontal' : 'isotipo';
-  return <img src={`/brand/identity-alpha/alpha-${mark}-${darkArtwork ? 'oscuro' : 'claro'}.svg`}
-    alt="ALPHA" className={`object-contain ${dimensions} ${className}`} />;
+  return <img src={`/brand/maha-dev/maha-dev-${mark}-${darkArtwork ? 'oscuro' : 'claro'}.svg`}
+    alt="MAHA DEV" className={`object-contain ${dimensions} ${className}`} />;
 };

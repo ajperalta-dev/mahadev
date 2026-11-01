@@ -15,7 +15,7 @@ export function ContactSection() {
   };
   const submit = (event: FormEvent) => {
     event.preventDefault();
-    const service = services.find(item => item.id === form.service)?.title[lang] || (es ? 'Consulta ALPHA' : 'ALPHA inquiry');
+    const service = services.find(item => item.id === form.service)?.title[lang] || (es ? 'Consulta MAHA DEV' : 'MAHA DEV inquiry');
     const body = `${form.name} <${form.email}>\n${form.company} ${form.phone}\n${form.message}`;
     window.location.href = `mailto:alpha.digital.ia@gmail.com?subject=${encodeURIComponent(service)}&body=${encodeURIComponent(body)}`;
     setPrepared(true);

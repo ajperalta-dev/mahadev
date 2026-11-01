@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useSectionReveal } from './hooks/useSectionReveal';
-import { FaqSection } from './components/common/FaqSection';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/common/Navbar';
@@ -16,11 +15,15 @@ import { WhatsAppWidget } from './components/whatsapp/WhatsAppWidget';
 import { ChatbotWidget } from './components/chat/ChatbotWidget';
 import { useLanguage } from './context/language';
 import { AboutPage } from './components/about/AboutPage';
+import { SolutionAreaPage } from './components/services/SolutionAreaPage';
 
 export function AppContent() {
-  const isAbout = window.location.pathname.replace(/\/$/, '') === '/nosotros';
-  useSectionReveal(!isAbout);
-  const { lang } = useLanguage();
+  const pathname = window.location.pathname.replace(/\/$/, '');
+  const isAbout = pathname === '/nosotros';
+  const { lang, services } = useLanguage();
+  const serviceId = pathname.match(/^\/soluciones\/([^/]+)$/)?.[1];
+  const activeService = services.find(service => service.id === serviceId);
+  useSectionReveal(!isAbout && !activeService);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState('');
   const [initialBookingNotes, setInitialBookingNotes] = useState('');
@@ -43,19 +46,18 @@ export function AppContent() {
 
   return (
     <div className="alpha-site">
-      {!isAbout && <BrandIntro />}
+      {!isAbout && !activeService && <BrandIntro />}
       
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
       {/* Main Content Sections */}
       <a href="#main" className="skip-link">{lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
       <main id="main">
-        {isAbout ? <AboutPage onOpenBooking={() => handleOpenBooking()} /> : <>
+        {isAbout ? <AboutPage onOpenBooking={() => handleOpenBooking()} /> : activeService ? <SolutionAreaPage service={activeService} onOpenBooking={handleOpenBooking} /> : <>
         <Hero onOpenBooking={() => handleOpenBooking()} />
         <ServicesSection onSelectServiceForBooking={(service) => handleOpenBooking(service)} />
         <CaseStudiesSection onOpenBooking={() => handleOpenBooking()} />
         <MethodologySection />
-        <FaqSection />
         <ContactSection />
         </>}
       </main>

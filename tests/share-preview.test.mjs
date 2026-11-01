@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 
 test('Social preview references the exported MAHA DEV artwork at an absolute public URL', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  const url = 'https://alpha-seven-nu.vercel.app/brand/maha-dev/share.png';
+  const url = 'https://mahadev-azure-delta.vercel.app/brand/maha-dev/share.png';
   assert.ok(html.includes(`property="og:image" content="${url}"`));
   assert.ok(html.includes(`name="twitter:image" content="${url}"`));
   const png = readFileSync(new URL('../public/brand/maha-dev/share.png', import.meta.url));

@@ -60,17 +60,17 @@ function selected(index) {
   assert.equal(document.querySelector('[role="tabpanel"]').getAttribute('aria-labelledby'), tabs[index].id);
 }
 
-test('each phase opens the matching question, real description and deliverable in one panel', () => {
+test('each phase opens its short message, outcome and animation in one panel', () => {
   const tabs = mount();
   assert.deepEqual(tabs.map(tab => tab.querySelector('strong').textContent), ['Comprender', 'Validar', 'Construir', 'Evolucionar']);
-  const outcomes = ['Informe de viabilidad y matriz de ROI', 'Prototipo funcional con datos reales', 'Despliegue productivo e integración de APIs', 'Monitorización, actualización y formación'];
-  const descriptions = ['Evaluamos', 'Diseñamos', 'Construcción', 'Monitorización'];
+  const outcomes = ['Un plan claro', 'Un prototipo validado', 'Una solución funcionando', 'Seguimiento y mejora continua'];
+  const descriptions = ['Priorizamos', 'Validamos', 'Integramos', 'La solución'];
   tabs.forEach((tab, index) => {
     click(tab);
     selected(index);
     assert.equal(document.querySelectorAll('[role="tabpanel"]').length, 1);
-    assert.equal(document.querySelector('.method-deliverable strong').textContent, outcomes[index]);
-    assert.ok(document.querySelector('.method-copy > p').textContent.startsWith(descriptions[index]));
+    assert.equal(document.querySelector('.method-result > span').textContent, `Resultado: ${outcomes[index]}`);
+    assert.ok(document.querySelector('.method-summary').textContent.startsWith(descriptions[index]));
     assert.ok(document.querySelector('.method-illustration svg'));
   });
 });
@@ -107,8 +107,8 @@ test('English selection uses the corresponding phase copy and navigation labels'
   assert.equal(tabs[2].querySelector('strong').textContent, 'Build');
   click(tabs[2]);
   selected(2);
-  assert.equal(document.querySelector('.method-copy h3').textContent, 'How do we move it into production?');
-  assert.equal(document.querySelector('.method-deliverable strong').textContent, 'Production deployment and API integration');
+  assert.equal(document.querySelector('.method-copy h3').textContent, 'Put it to work');
+  assert.equal(document.querySelector('.method-result > span').textContent, 'Outcome: A working solution');
   assert.ok(document.querySelector('[aria-label="Next phase"]'));
-  assert.ok(document.querySelector('.method-copy > p').textContent.startsWith('Full engineering'));
+  assert.ok(document.querySelector('.method-summary').textContent.startsWith('Bring the solution'));
 });

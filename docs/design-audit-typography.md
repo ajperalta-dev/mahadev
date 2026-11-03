@@ -47,9 +47,15 @@ La comprobación visual en escritorio/móvil queda pendiente de un navegador acc
 
 - Cuatro pestañas en una fila en escritorio y una retícula de dos columnas en móvil.
 - Un único panel de contenido con objetivo, explicación y entregable de la fase elegida.
-- Animación integrada junto al título a 128 px en escritorio y 72 px en móvil; se elimina su columna independiente.
+- Animación integrada a 180 px en escritorio y 72 px en móvil.
 - Menos padding, títulos de 22–28 px y controles agrupados dentro del bloque.
 - Semántica tablist/tab/tabpanel y una sola pestaña en el recorrido de Tab.
 - Flechas, Home y End cambian de fase y mantienen el foco. Los controles anterior/siguiente respetan los límites.
 - Compilación correcta y 20 pruebas aprobadas: 16 de introducción y 4 de exploración de metodología.
 - Revisión visual pendiente por la limitación del navegador indicada arriba.
+
+Simplificación posterior solicitada: se sustituyen los títulos técnicos y los párrafos largos por
+un mensaje breve y un resultado por fase. Los plazos aparecen solo en la fase abierta.
+Las pestañas tienen menor altura y el contenido entra con una transición breve al elegir una fase;
+la preferencia de movimiento reducido desactiva esa transición. Compilación y las cuatro pruebas
+de metodología correctas después del ajuste.

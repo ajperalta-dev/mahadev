@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../../context/language';
 import { solutionAreaDetails } from '../../data/solutionAreaDetails';
 import type { ServiceItem } from '../../types';
+import { AreaServiceExplorer } from './AreaServiceExplorer';
 
 const areaPhotography: Record<string, { src: string; alt: { es: string; en: string }; credit: string; source: string }> = {
   'digital-transformation-assessment': {
@@ -74,12 +75,12 @@ export function SolutionAreaPage({ service, onOpenBooking }: { service: ServiceI
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     const previousDescription = description?.content;
     document.title = `${service.title[lang]} | MAHA DEV`;
-    if (description) description.content = service.description[lang];
+    if (description) description.content = content.summary;
     return () => {
       document.title = previousTitle;
       if (description && previousDescription !== undefined) description.content = previousDescription;
     };
-  }, [service, lang]);
+  }, [service, lang, content.summary]);
 
   return <article className="area-page">
     {isOperationsArea ? <header className="area-data-hero">
@@ -87,12 +88,12 @@ export function SolutionAreaPage({ service, onOpenBooking }: { service: ServiceI
         <a className="area-back text-link" href="/#services"><ArrowLeft size={18} />{es ? 'Todas las soluciones' : 'All solutions'}</a>
         <div className="area-data-hero-layout">
           <div className="area-data-hero-copy">
-            <p className="area-category">{service.levelBadge[lang]}</p>
-            <h1>{service.title[lang]}</h1>
-            <p className="area-summary">{service.description[lang]}</p>
+            <p className="area-category">{service.title[lang]}</p>
+            <h1>{content.headline}</h1>
+            <p className="area-summary">{content.summary}</p>
             <div className="area-header-actions">
-              <button className="button button-primary" onClick={() => onOpenBooking(service.title[lang])}>{es ? 'Hablemos de tu transformación' : 'Discuss your transformation'}<ArrowUpRight size={19} /></button>
-              <a className="area-hero-link" href="#problemas">{es ? 'Ver problemas que resolvemos' : 'See the problems we solve'}<ArrowRight size={18} /></a>
+              <a className="button button-primary" href="#servicios">{es ? 'Encuentra tu solución' : 'Find your solution'}<ArrowRight size={19} /></a>
+              <button className="area-hero-link" onClick={() => onOpenBooking(service.title[lang])}>{es ? 'Hablemos' : 'Let’s talk'}<ArrowUpRight size={18} /></button>
             </div>
           </div>
           <OperationsDashboard es={es} />
@@ -104,34 +105,25 @@ export function SolutionAreaPage({ service, onOpenBooking }: { service: ServiceI
       <div className="shell area-hero-shell">
         <a className="area-back text-link" href="/#services"><ArrowLeft size={18} />{es ? 'Todas las soluciones' : 'All solutions'}</a>
         <div className="area-hero-copy">
-          <p className="area-category">{service.levelBadge[lang]}</p>
-          <h1>{service.title[lang]}</h1>
-          <p className="area-summary">{service.description[lang]}</p>
+          <p className="area-category">{service.title[lang]}</p>
+          <h1>{content.headline}</h1>
+          <p className="area-summary">{content.summary}</p>
           <div className="area-header-actions">
-            <button className="button button-primary" onClick={() => onOpenBooking(service.title[lang])}>{es ? 'Hablemos de tu transformación' : 'Discuss your transformation'}<ArrowUpRight size={19} /></button>
-            <a className="area-hero-link" href="#problemas">{es ? 'Ver problemas que resolvemos' : 'See the problems we solve'}<ArrowRight size={18} /></a>
+            <a className="button button-primary" href="#servicios">{es ? 'Encuentra tu solución' : 'Find your solution'}<ArrowRight size={19} /></a>
+            <button className="area-hero-link" onClick={() => onOpenBooking(service.title[lang])}>{es ? 'Hablemos' : 'Let’s talk'}<ArrowUpRight size={18} /></button>
           </div>
         </div>
         <a className="area-photo-credit" href={photo.source} target="_blank" rel="noreferrer">{es ? 'Fotografía' : 'Photography'}: {photo.credit}</a>
       </div>
     </header>}
     <div className="shell area-content">
-      <div className="area-objective"><span>{es ? 'El objetivo' : 'The objective'}</span><p>{service.businessImpact[lang]}</p></div>
-      <div className={`area-capabilities${service.id === 'ai-industry-40' ? ' area-capabilities--ai' : ''}`}><span>{es ? 'Ámbitos de trabajo' : 'Capabilities'}</span><ul>{service.techStack.map(topic => <li key={topic}>{topic}</li>)}</ul></div>
-      <section className="area-overview" aria-labelledby="area-overview-title">
-        <div><h2 id="area-overview-title">{es ? 'Una solución conectada con tu realidad' : 'A solution grounded in your business'}</h2><p>{content.explanation}</p></div>
-        <aside className="area-deliverables"><h3>{es ? 'Qué incluye' : 'What is included'}</h3><ul>{service.deliverables[lang].map(item => <li key={item}><Check size={18} aria-hidden="true" /><span>{item}</span></li>)}</ul></aside>
-      </section>
-      <section className="area-scenarios" id="problemas" aria-labelledby="area-problems-title">
-        <div className="area-section-intro"><h2 id="area-problems-title">{es ? 'Problemas que resolvemos' : 'Problems we solve'}</h2><p>{es ? 'Ejemplos de retos concretos y de cómo los abordamos en tu operación.' : 'Examples of real challenges and how we address them in your operations.'}</p></div>
-        <div className="area-scenario-list">{content.scenarios.map((scenario, index) => <article className="area-scenario" key={scenario.title}>
-          <div className="area-challenge"><span className="area-scenario-index">{String(index + 1).padStart(2, '0')}</span><h3>{scenario.title}</h3><p>{scenario.problem}</p></div>
-          <div className="area-response"><h4>{es ? 'Cómo actuamos' : 'How we respond'}</h4><p>{scenario.solution}</p><div className="area-scenario-delivery"><Check size={18} aria-hidden="true" /><p>{scenario.deliverable}</p></div></div>
-        </article>)}</div>
+      <section className="area-services" id="servicios" aria-labelledby="area-services-title">
+        <div className="area-section-intro"><h2 id="area-services-title">{es ? '¿Qué necesitas resolver?' : 'What do you need to solve?'}</h2><p>{es ? 'Elige el reto que reconoces en tu negocio.' : 'Choose the challenge you recognize in your business.'}</p></div>
+        <AreaServiceExplorer key={service.id} offerings={content.offerings} es={es} />
       </section>
     </div>
     <nav className="area-related" aria-label={es ? 'Otras áreas de soluciones' : 'Other solution areas'}>
-      <div className="shell area-related-shell"><p>{es ? 'Explora también' : 'Explore more'}</p><div className="area-related-links">{services.filter(item => item.id !== service.id).map(item => <a key={item.id} href={`/soluciones/${item.id}`}>{item.title[lang]}<ArrowUpRight size={20} aria-hidden="true" /></a>)}</div></div>
+      <div className="shell area-related-shell"><h2>{es ? 'Explora también' : 'Explore more'}</h2><div className="area-related-links">{services.filter(item => item.id !== service.id).map(item => <a key={item.id} href={`/soluciones/${item.id}`}><span><strong>{solutionAreaDetails[item.id][lang].choice}</strong><small>{item.title[lang]}</small></span><ArrowUpRight size={20} aria-hidden="true" /></a>)}</div></div>
     </nav>
   </article>;
 }

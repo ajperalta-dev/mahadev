@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, BrainCircuit, Database, Factory, Pause, Play, Workflow } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, BrainCircuit, Database, Factory, Workflow } from 'lucide-react';
 import { useLanguage } from '../../context/language';
 import { TransformationField } from './TransformationField';
 
@@ -7,7 +7,6 @@ export function Hero({ onOpenBooking }: { onOpenBooking: () => void }) {
   const { lang } = useLanguage();
   const es = lang === 'es';
   const [mode, setMode] = useState(1);
-  const [paused, setPaused] = useState(false);
   const [introReady, setIntroReady] = useState(false);
   useEffect(() => {
     const ready = () => setIntroReady(true);
@@ -16,14 +15,14 @@ export function Hero({ onOpenBooking }: { onOpenBooking: () => void }) {
     return () => window.removeEventListener('alpha:intro-complete', ready);
   }, []);
   useEffect(() => {
-    if (!introReady || paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!introReady || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = window.setInterval(() => {
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         setMode(current => (current + 1) % 3);
       }
     }, 3000);
     return () => window.clearInterval(timer);
-  }, [mode, paused, introReady]);
+  }, [mode, introReady]);
   const modes = es ? ['Datos', 'Inteligencia', 'Evolución'] : ['Data', 'Intelligence', 'Evolution'];
   const descriptions = es
     ? ['Información dispersa. Nuevas posibilidades.', 'Conexiones que convierten datos en criterio.', 'Sistemas que aprenden. Negocios que evolucionan.']
@@ -35,7 +34,7 @@ export function Hero({ onOpenBooking }: { onOpenBooking: () => void }) {
     { Icon: Workflow, title: es ? 'Transformación digital' : 'Digital transformation', detail: es ? 'Rediseña lo que es posible' : 'Redesign what is possible' },
   ];
   return <section id="hero" className="hero-section">
-    <TransformationField mode={mode} paused={paused || !introReady} />
+    <TransformationField mode={mode} paused={!introReady} />
     <div className="hero-atmosphere" aria-hidden="true" />
     <div className="shell hero-layout">
       <div className="hero-copy">
@@ -54,7 +53,6 @@ export function Hero({ onOpenBooking }: { onOpenBooking: () => void }) {
           <p className="transformation-description" aria-live="polite">{descriptions[mode]}</p>
           <div className="transformation-control-row">
             <div className="transformation-modes" role="group" aria-label={es ? 'Explorar la transformación de los datos' : 'Explore data transformation'}>{modes.map((name, index) => <button key={name} aria-pressed={mode === index} onClick={() => setMode(index)}>{name}</button>)}</div>
-            <button className="icon-button" aria-pressed={paused} aria-label={es ? (paused ? 'Reanudar fondo animado' : 'Pausar fondo animado') : (paused ? 'Resume animated background' : 'Pause animated background')} onClick={() => setPaused(!paused)}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
           </div>
         </div>
       </div>

@@ -20,16 +20,25 @@ export function MethodologySection() {
   };
   return <section id="methodology" className="section methodology-section"><SceneBackdrop /><div className="shell">
     <div className="section-heading"><SceneHeading>{es ? 'Un proceso claro. Un avance tangible' : 'A clear process. Tangible progress'}</SceneHeading><p>{es ? 'De entender el problema a poner la solución en marcha. Cuatro fases, una dirección compartida y un entregable concreto en cada etapa.' : 'From understanding the problem to putting the solution to work. Four phases, one shared direction and a concrete deliverable at every stage.'}</p></div>
-    <div className="method-steps" role="group" aria-label={es ? 'Fases del proyecto' : 'Project phases'} onKeyDown={event => {
+    <div className="method-explorer">
+    <div className="method-steps" role="tablist" aria-label={es ? 'Fases del proyecto' : 'Project phases'} onKeyDown={event => {
       const index = refs.current.findIndex(button => button === event.target);
       if (index < 0) return;
-      const next = ['ArrowRight', 'ArrowDown'].includes(event.key) ? index + 1 : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? index - 1 : event.key === 'Home' ? 0 : event.key === 'End' ? 3 : null;
+      const next = ['ArrowRight', 'ArrowDown'].includes(event.key) ? (index + 1) % 4 : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? (index + 3) % 4 : event.key === 'Home' ? 0 : event.key === 'End' ? 3 : null;
       if (next !== null) { event.preventDefault(); choose(next, true); }
-    }}>{names.map((name, index) => <button key={name} ref={element => { refs.current[index] = element; }} id={`method-step-${index}`} className="method-step" aria-pressed={active === index} aria-controls="method-detail" onClick={() => choose(index)}><span className="method-number">0{index + 1}</span><span><strong>{name}</strong><small>{times[index]}</small></span></button>)}</div>
-    <div id="method-detail" className="method-detail" role="region" aria-labelledby={`method-step-${active}`}>
-      <div className="method-copy"><p className="method-phase-name">{t(`method.phase${active + 1}.title`)}</p><h3>{questions[active]}</h3><p>{t(`method.phase${active + 1}.desc`)}</p><div className="method-deliverable"><Check size={22} /><div><small>{es ? 'Al finalizar esta fase' : 'At the end of this phase'}</small><strong>{deliverables[active]}</strong></div></div></div>
-      <div className="method-illustration is-playing"><PhaseAnimation key={active} phase={active} lang={lang} /></div>
+    }}>{names.map((name, index) => <button key={name} ref={element => { refs.current[index] = element; }} id={`method-step-${index}`} className="method-step" role="tab" aria-selected={active === index} tabIndex={active === index ? 0 : -1} aria-controls="method-detail" onClick={() => choose(index)}><span className="method-number" aria-hidden="true">0{index + 1}</span><span><strong>{name}</strong><small>{times[index]}</small></span></button>)}</div>
+    <div id="method-detail" className="method-detail" role="tabpanel" tabIndex={0} aria-labelledby={`method-step-${active}`}>
+      <div className="method-copy">
+        <div className="method-detail-header">
+          <div><p className="method-phase-name">{t(`method.phase${active + 1}.title`)}</p><h3>{questions[active]}</h3></div>
+          <div className="method-illustration is-playing"><PhaseAnimation key={active} phase={active} lang={lang} /></div>
+        </div>
+        <p>{t(`method.phase${active + 1}.desc`)}</p>
+        <div className="method-deliverable"><Check size={20} aria-hidden="true" /><div><small>{es ? 'Qué te llevas' : 'What you get'}</small><strong>{deliverables[active]}</strong></div></div>
+      </div>
     </div>
-    <div className="method-footer"><p role="status">{es ? `Fase ${active + 1} de 4. Los plazos se adaptan al alcance de tu proyecto.` : `Phase ${active + 1} of 4. Timelines adapt to your project scope.`}</p><div><button className="icon-button" disabled={active === 0} onClick={() => choose(active - 1)} aria-label={es ? 'Fase anterior' : 'Previous phase'}><ArrowLeft size={19} /></button><button className="text-link" disabled={active === 3} onClick={() => choose(active + 1)}>{es ? 'Siguiente fase' : 'Next phase'}<ArrowRight size={19} /></button></div></div>
+    <div className="method-footer"><p role="status" aria-live="polite">{es ? `Fase ${active + 1} de 4` : `Phase ${active + 1} of 4`}</p><div><button className="icon-button" disabled={active === 0} onClick={() => choose(active - 1, true)} aria-label={es ? 'Fase anterior' : 'Previous phase'}><ArrowLeft size={18} /></button><button className="text-link" disabled={active === 3} onClick={() => choose(active + 1, true)} aria-label={es ? 'Siguiente fase' : 'Next phase'}>{es ? 'Siguiente' : 'Next'}<ArrowRight size={18} /></button></div></div>
+    </div>
+    <p className="method-note">{es ? 'Plazos orientativos. Se adaptan al alcance de tu proyecto.' : 'Indicative timelines, adapted to the scope of your project.'}</p>
   </div></section>;
 }

@@ -13,7 +13,9 @@ El visitante debe reconocer su problema y encontrar un servicio sin leer un cat�
 - Lista y panel lateral en escritorio; acordeón en móvil, con el detalle inmediatamente debajo de su opción.
 - «Explora también» en negro, con enlaces que distinguen las áreas por la necesidad del cliente.
 
-Se eliminan las repeticiones entre objetivo, ámbitos, presentación, entregables y casos largos. Los esquemas son SVG locales: conexiones, cuadros de mando, previsiones y transformación de procesos. No representan resultados reales de un cliente.
+Se eliminan las repeticiones entre objetivo, ámbitos, presentación, entregables y casos largos. Cada uno de los 19 servicios tiene una escena SVG local propia y una animación que representa su función. No representan resultados reales de un cliente.
+
+Las escenas distinguen diagnóstico mediante escaneo, estrategia mediante priorización, procesos mediante simplificación, arquitectura mediante capas y roadmap mediante hitos. Data diferencia integración de fuentes, dashboards, automatización entre aplicaciones y gestión de excepciones. AI diferencia agentes que consultan documentos, modelos que clasifican, previsiones, señales de mantenimiento y una línea industrial conectada. Partner muestra decisiones compartidas, entrega mediante kanban, transferencia de conocimiento, responsabilidades y ciclos de mejora.
 
 ## Cobertura
 
@@ -26,6 +28,6 @@ Contenido disponible en español e inglés. Los controles usan botones con estad
 
 ## Validación
 
-Compilación de producción correcta. Nueve pruebas cubren las cuatro áreas en ambos idiomas, selección de servicios, asociación de entregables, enlaces entre áreas, navegación al explorador, preselección de reservas y restauración de metadatos. Análisis estático de los archivos modificados sin errores.
+Compilación de producción correcta. Diez pruebas cubren las cuatro áreas en ambos idiomas, selección de servicios, asociación de entregables, enlaces entre áreas, navegación al explorador, preselección de reservas, restauración de metadatos y correspondencia única de las 19 ilustraciones. Análisis estático de los archivos modificados sin errores. Las composiciones de los 19 SVG se renderizaron con Resvg y se revisaron en cuatro láminas por área.
 
 La revisión visual en navegador permanece pendiente: el host de navegador no está disponible y Computer Use detuvo la captura porque no pudo verificar la URL de Chrome. No se utilizó otra vía para eludir ese bloqueo.

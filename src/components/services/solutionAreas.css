@@ -99,42 +99,6 @@
 .area-service-action { max-width:50ch; margin-top:12px; font-size:var(--type-body); line-height:var(--leading-body); color:var(--muted); }
 .area-sketch { margin:24px 0; padding:16px; border-radius:8px; color:#fff; background:#000; }
 .area-sketch > svg { display:block; width:100%; height:auto; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-.sketch-frame { fill:#000; stroke:rgba(255,255,255,.55); }
-.sketch-grid { stroke:rgba(255,255,255,.15); }
-.sketch-muted { stroke:rgba(255,255,255,.45); }
-.sketch-focus { fill:#000; stroke:#fff; }
-.sketch-center-icon { opacity:0; animation:diagram-arrive .45s .45s cubic-bezier(.2,.8,.2,1) forwards; }
-.area-sketch-graphic .sketch-focus { transform-box:fill-box; transform-origin:center; animation:diagram-pulse 3s .8s ease-in-out infinite; }
-.sketch-connectors, .sketch-arrow, .sketch-history, .sketch-trend, .sketch-prediction { fill:none; stroke:#fff; stroke-dasharray:1200; stroke-dashoffset:1200; animation:diagram-draw 1s cubic-bezier(.2,.7,.2,1) forwards; }
-.sketch-connectors { stroke:rgba(255,255,255,.55); animation-delay:.12s; }
-.sketch-arrow { stroke-width:2; stroke-dasharray:40; animation-delay:.68s; }
-.sketch-history { stroke:rgba(255,255,255,.4); stroke-dasharray:500; animation-delay:.12s; }
-.sketch-trend { stroke:#fff; stroke-width:2.5; stroke-dasharray:400; animation-delay:.3s; }
-.sketch-prediction { stroke:#fff; stroke-width:2.5; stroke-dasharray:320; animation-delay:.62s; }
-.sketch-divider { stroke:rgba(255,255,255,.22); stroke-dasharray:4 5; opacity:0; animation:diagram-arrive .35s .55s ease-out forwards; }
-.sketch-dot { fill:#fff; stroke:#000; transform-box:fill-box; transform-origin:center; animation:diagram-arrive .4s .82s cubic-bezier(.2,.8,.2,1) both, diagram-pulse 2.5s 1.25s ease-in-out infinite; }
-.sketch-input, .sketch-output { transform-box:fill-box; transform-origin:center; animation:diagram-arrive .45s cubic-bezier(.2,.8,.2,1) both; }
-.sketch-sources .sketch-input:nth-child(1) { animation-delay:.08s; }
-.sketch-sources .sketch-input:nth-child(2) { animation-delay:.2s; }
-.sketch-sources .sketch-input:nth-child(3) { animation-delay:.32s; }
-.sketch-targets > g:nth-child(1) .sketch-output, .sketch-targets > g:nth-child(1) .sketch-check { animation-delay:.82s; }
-.sketch-targets > g:nth-child(2) .sketch-output, .sketch-targets > g:nth-child(2) .sketch-check { animation-delay:.94s; }
-.sketch-targets > g:nth-child(3) .sketch-output, .sketch-targets > g:nth-child(3) .sketch-check { animation-delay:1.06s; }
-.sketch-output, .sketch-result-check { animation-delay:.86s; }
-.sketch-check, .sketch-result-check { opacity:0; transform-box:fill-box; transform-origin:center; animation:diagram-arrive .38s .86s cubic-bezier(.2,.8,.2,1) forwards; }
-.sketch-board { opacity:0; transform-box:fill-box; transform-origin:center; animation:diagram-arrive .5s ease-out forwards; }
-.sketch-bars rect { fill:rgba(255,255,255,.78); stroke:none; transform-box:fill-box; transform-origin:bottom; animation:diagram-grow .7s cubic-bezier(.2,.8,.2,1) both; }
-.sketch-bars rect:nth-child(1) { animation-delay:.1s; }
-.sketch-bars rect:nth-child(2) { animation-delay:.18s; }
-.sketch-bars rect:nth-child(3) { animation-delay:.26s; }
-.sketch-bars rect:nth-child(4) { animation-delay:.34s; }
-.sketch-bars rect:nth-child(5) { animation-delay:.42s; }
-.sketch-bars rect:nth-child(6) { animation-delay:.5s; }
-.sketch-bars rect:nth-child(7) { animation-delay:.58s; }
-.area-sketch-graphic.is-dashboard .sketch-muted, .area-sketch-graphic.is-dashboard .sketch-grid { opacity:0; animation:diagram-arrive .35s .14s ease-out forwards; }
-.sketch-signal-icon { opacity:0; animation:diagram-arrive .4s 1s ease-out forwards; }
-.sketch-dot { fill:#fff; stroke:#000; }
-.area-sketch figcaption { opacity:0; animation:diagram-arrive .4s 1s ease-out forwards; }
 .area-sketch figcaption { display:grid; grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr); align-items:center; gap:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.2); font-size:13px; line-height:1.5; }
 .area-sketch figcaption > span { color:rgba(255,255,255,.7); }
 .area-sketch figcaption > strong { font-weight:500; text-align:right; }
@@ -153,14 +117,9 @@
 .area-related-links > a:hover > svg { color:#fff; transform:translate(3px,-3px); }
 .area-related-links a:focus-visible { outline-color:#fff; outline-offset:4px; }
 @keyframes offering-enter { from { opacity:.4; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
-@keyframes diagram-draw { to { stroke-dashoffset:0; } }
-@keyframes diagram-arrive { from { opacity:0; transform:scale(.92); } to { opacity:1; transform:scale(1); } }
-@keyframes diagram-grow { from { transform:scaleY(.12); opacity:.45; } to { transform:scaleY(1); opacity:1; } }
-@keyframes diagram-pulse { 50% { transform:scale(1.06); } }
 @media (prefers-reduced-motion:reduce) {
   .area-related-links > a, .area-related-links > a > svg, .area-offering-heading button { transition:none; }
-  .area-service-detail, .area-sketch-graphic *, .area-sketch figcaption { animation:none !important; opacity:1; transform:none; }
-  .area-sketch-graphic .sketch-connectors, .area-sketch-graphic .sketch-arrow, .area-sketch-graphic .sketch-history, .area-sketch-graphic .sketch-trend, .area-sketch-graphic .sketch-prediction { stroke-dashoffset:0; }
+  .area-service-detail { animation:none; }
 }
 
 @media (max-width:1000px) {

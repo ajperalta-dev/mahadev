@@ -1,0 +1,89 @@
+/* Each service has its own scene and motion. Coordinates follow the SVG viewBox. */
+.service-illustration { overflow:visible; }
+.service-illustration .ill-paper { fill:#000; stroke:rgba(255,255,255,.7); }
+.service-illustration .ill-muted { fill:none; stroke:rgba(255,255,255,.28); }
+.service-illustration .ill-solid { fill:#fff; stroke:none; }
+.service-illustration .ill-zone { fill:rgba(255,255,255,.1); stroke:none; }
+.service-illustration .ill-label { fill:rgba(255,255,255,.7); stroke:none; font:13px var(--font-body); }
+.service-illustration .ill-reveal { animation:illustration-reveal .5s calc(var(--scene-step,0) * .12s) both; }
+.service-illustration .ill-draw { stroke-dasharray:1; stroke-dashoffset:1; animation:illustration-draw .95s calc(var(--scene-step,0) * .12s) ease-out forwards; }
+
+/* Assessment: scan, choose a priority, simplify, layer systems, plan milestones. */
+.ill-audit-scan { stroke:rgba(255,255,255,.9); filter:drop-shadow(0 0 5px rgba(255,255,255,.5)); animation:audit-scan 3.8s ease-in-out infinite alternate; }
+.ill-audit-lens { animation:audit-lens 3.8s ease-in-out infinite alternate; }
+.ill-strategy-choice { animation:strategy-choice 4.8s cubic-bezier(.4,0,.2,1) infinite; }
+.ill-process-rework { fill:#000; stroke:rgba(255,255,255,.7); animation:process-rework 4.5s ease-in-out infinite; }
+.ill-process-token { animation:process-progress 4.5s ease-in-out infinite; }
+.ill-architecture-bus { stroke:rgba(255,255,255,.55); stroke-dasharray:3 8; animation:illustration-stream 2.4s linear infinite; }
+.ill-architecture-packet { animation:architecture-packet 3.6s ease-in-out infinite; }
+.ill-roadmap-track { stroke-width:2; }
+.ill-roadmap-point { transform-box:fill-box; transform-origin:center; animation:roadmap-milestone 4.8s calc(var(--scene-step,0) * .6s) ease-in-out infinite; }
+
+/* Data: records merge, KPIs populate, apps exchange work, exceptions reach an owner. */
+.ill-integration-stream { stroke:#fff; stroke-dasharray:2 12; stroke-width:2.5; animation:illustration-stream 1.8s linear infinite; }
+.ill-verified { fill:#000; }
+.ill-dashboard-bars rect { transform-box:fill-box; transform-origin:bottom; animation:illustration-grow .9s calc(var(--scene-step,0) * .1s) cubic-bezier(.2,.8,.2,1) both; }
+.ill-dashboard-donut { fill:none; stroke:#fff; stroke-width:10; stroke-dasharray:.72 1; stroke-dashoffset:.72; transform:rotate(-90deg); transform-origin:405px 126px; animation:illustration-draw 1.4s .25s ease-out forwards; }
+.ill-automation-gear { transform-box:fill-box; transform-origin:center; animation:illustration-rotate 7s linear infinite; }
+.ill-automation-gear.reverse { animation-direction:reverse; }
+.ill-automation-task { animation:automation-task 4.5s ease-in-out infinite; }
+.ill-tower-sweep { fill:rgba(255,255,255,.1); stroke:rgba(255,255,255,.25); transform-origin:0 0; animation:illustration-rotate 7s linear infinite; }
+.ill-tower-alert { transform-box:fill-box; transform-origin:center; animation:equipment-alert 3.8s ease-in-out infinite; }
+
+/* AI: retrieve knowledge, classify examples, forecast, monitor vibration, connect a line. */
+.ill-agent-query { stroke:rgba(255,255,255,.7); stroke-dasharray:4 10; animation:illustration-stream 2.1s linear infinite; }
+.ill-agent-documents > svg { animation:illustration-reveal .5s .35s both; }
+.ill-agent-documents > svg:nth-child(2) { animation-delay:.55s; }
+.ill-agent-documents > svg:nth-child(3) { animation-delay:.75s; }
+.ill-agent-answer { animation:agent-answer 4.8s ease-in-out infinite; }
+.ill-ml-links { stroke:rgba(255,255,255,.35); stroke-dasharray:3 10; animation:illustration-stream 2.5s linear infinite; }
+.service-illustration .ill-ml-neuron { animation:neuron-activate 3.6s calc(var(--scene-step,0) * .22s) ease-in-out infinite; }
+.ill-forecast-band { fill:rgba(255,255,255,.09); stroke:none; animation:illustration-reveal 1s .35s both; }
+.ill-forecast-future { stroke-width:2; stroke-dasharray:.025 .025; animation:forecast-dashes 3s linear infinite; }
+.ill-forecast-point { animation:forecast-project 5s ease-in-out infinite; }
+.ill-motor-spin { transform-box:fill-box; transform-origin:center; animation:illustration-rotate 8s linear infinite; }
+.ill-maintenance-alert { fill:none; stroke:#fff; transform-box:fill-box; transform-origin:center; animation:equipment-alert 4.8s ease-in-out infinite; }
+.ill-vibration { stroke-width:2; }
+.ill-industrial-data { stroke:rgba(255,255,255,.7); stroke-dasharray:3 9; animation:illustration-stream 2.5s linear infinite; }
+.ill-conveyor-box { animation:conveyor-move 5s linear infinite; }
+
+/* Partner: discuss a decision, deliver a project, transfer skills, assign ownership, improve. */
+.ill-advisory-left { animation:advisory-conversation 6s ease-in-out infinite; }
+.ill-advisory-right { animation:advisory-conversation 6s 2s ease-in-out infinite; }
+.ill-implementation-card { animation:implementation-deliver 6s ease-in-out infinite; }
+.ill-implementation-progress { stroke-dasharray:1; stroke-dashoffset:1; animation:implementation-progress 6s ease-in-out infinite; }
+.ill-training-transfer { stroke:rgba(255,255,255,.6); stroke-dasharray:3 10; animation:illustration-stream 2.2s linear infinite; }
+.ill-training-person { animation:training-transfer 4.8s calc(var(--scene-step,0) * .6s) ease-in-out infinite; }
+.ill-governance-check { stroke-dasharray:40; stroke-dashoffset:40; animation:illustration-draw .7s .9s ease-out forwards; }
+.ill-improvement-cycle { transform-origin:0 0; animation:illustration-rotate 12s linear infinite; }
+.ill-improvement-point { transform-box:fill-box; transform-origin:center; animation:roadmap-milestone 4s ease-in-out infinite; }
+
+@keyframes illustration-reveal { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
+@keyframes illustration-draw { to { stroke-dashoffset:0; } }
+@keyframes illustration-grow { from { transform:scaleY(.06); opacity:.2; } to { transform:scaleY(1); opacity:1; } }
+@keyframes illustration-stream { to { stroke-dashoffset:-56; } }
+@keyframes illustration-rotate { to { transform:rotate(360deg); } }
+@keyframes audit-scan { 0%,12% { transform:translateY(0); opacity:.25; } 85%,100% { transform:translateY(89px); opacity:1; } }
+@keyframes audit-lens { 0%,15% { transform:translate(-38px,-18px); } 85%,100% { transform:translate(0,0); } }
+@keyframes strategy-choice { 0%,20% { transform:translate(0,0); opacity:1; } 65%,88% { transform:translate(179px,42px); opacity:1; } 96%,100% { transform:translate(179px,42px); opacity:0; } }
+@keyframes process-rework { 0%,20%,100% { stroke:rgba(255,255,255,.7); } 45%,85% { stroke:rgba(255,255,255,.15); } }
+@keyframes process-progress { 0%,20% { transform:translateX(0); opacity:0; } 25% { opacity:1; } 75%,90% { transform:translateX(276px); opacity:1; } 100% { transform:translateX(276px); opacity:0; } }
+@keyframes architecture-packet { 0%,12% { transform:translateY(0); opacity:0; } 20% { opacity:1; } 80% { transform:translateY(106px); opacity:1; } 100% { transform:translateY(106px); opacity:0; } }
+@keyframes roadmap-milestone { 0%,65%,100% { opacity:.3; transform:scale(.8); } 25%,40% { opacity:1; transform:scale(1.16); } }
+@keyframes automation-task { 0%,10% { transform:translateX(0); opacity:0; } 20% { opacity:1; } 45% { transform:translateX(187px); } 80%,90% { transform:translateX(374px); opacity:1; } 100% { transform:translateX(374px); opacity:0; } }
+@keyframes equipment-alert { 0%,35%,100% { stroke-opacity:.35; transform:scale(1); } 55%,70% { stroke-opacity:1; transform:scale(1.15); } }
+@keyframes agent-answer { 0%,25%,100% { opacity:.15; } 45%,85% { opacity:1; } }
+@keyframes neuron-activate { 0%,70%,100% { fill:#000; } 25%,40% { fill:rgba(255,255,255,.6); } }
+@keyframes forecast-project { 0%,12% { transform:translate(0,0); opacity:0; } 18% { opacity:1; } 40% { transform:translate(65px,-22px); } 60% { transform:translate(125px,-34px); } 83%,92% { transform:translate(205px,-41px); opacity:1; } 100% { transform:translate(205px,-41px); opacity:0; } }
+@keyframes forecast-dashes { to { stroke-dashoffset:-.1; } }
+@keyframes conveyor-move { 0% { transform:translateX(0); } 100% { transform:translateX(190px); } }
+@keyframes advisory-conversation { 0%,100% { opacity:.35; } 30%,65% { opacity:1; } }
+@keyframes implementation-deliver { 0%,18% { transform:translateX(0); } 38%,52% { transform:translateX(148px); } 73%,93% { transform:translateX(296px); opacity:1; } 99%,100% { transform:translateX(296px); opacity:0; } }
+@keyframes implementation-progress { 0%,18% { stroke-dashoffset:1; } 38%,52% { stroke-dashoffset:.5; } 73%,93% { stroke-dashoffset:0; opacity:1; } 99%,100% { stroke-dashoffset:0; opacity:0; } }
+@keyframes training-transfer { 0%,10%,100% { opacity:.35; } 35%,80% { opacity:1; } }
+
+@media (prefers-reduced-motion:reduce) {
+  .service-illustration *, .service-illustration .ill-draw { animation:none !important; opacity:1; transform:none; stroke-dashoffset:0; }
+  .service-illustration .ill-implementation-card { transform:translateX(296px); }
+  .service-illustration .ill-dashboard-donut { transform:rotate(-90deg); }
+}

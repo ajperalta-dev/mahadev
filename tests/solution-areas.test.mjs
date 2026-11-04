@@ -6,6 +6,7 @@ import ts from 'typescript';
 import { JSDOM } from 'jsdom';
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 registerHooks({
   resolve(specifier, context, next) {
@@ -18,6 +19,7 @@ registerHooks({
     return next(specifier, context);
   },
   load(url, context, next) {
+    if (url.endsWith('.css')) return { format: 'module', shortCircuit: true, source: '' };
     if (/\/src\/.*\.tsx?$/.test(url)) return {
       format: 'module', shortCircuit: true,
       source: ts.transpileModule(readFileSync(new URL(url), 'utf8'), {
@@ -35,6 +37,7 @@ const { SolutionAreaPage } = await import('../src/components/services/SolutionAr
 const { LanguageProvider } = await import('../src/context/LanguageContext.tsx');
 const { transformationServices } = await import('../src/data/transformationServices.ts');
 const { solutionAreaDetails } = await import('../src/data/solutionAreaDetails.ts');
+const { ServiceIllustration } = await import('../src/components/services/ServiceIllustration.tsx');
 let root;
 
 function mount(service, lang = 'es', onOpenBooking = () => {}) {
@@ -98,4 +101,18 @@ test('the discovery link targets the services and booking keeps the selected are
   root = undefined;
   assert.equal(document.title, 'MAHA DEV');
   assert.equal(document.querySelector('meta[name="description"]').content, 'Original description');
+});
+
+test('all services have their own illustration, including services with a shared navigation icon', () => {
+  const scenes = new Set();
+  for (const service of transformationServices) {
+    for (const offering of solutionAreaDetails[service.id].es.offerings) {
+      const markup = renderToStaticMarkup(React.createElement(ServiceIllustration, { areaId: service.id, icon: offering.icon, title: offering.title, es: true }));
+      const scene = markup.match(/data-illustration="([^"]+)"/)?.[1];
+      assert.ok(scene, `${service.id}: ${offering.title} needs an illustration`);
+      assert.ok(!scenes.has(scene), `${offering.title} reuses another service's illustration`);
+      scenes.add(scene);
+    }
+  }
+  assert.equal(scenes.size, 19);
 });

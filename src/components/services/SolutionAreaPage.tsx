@@ -119,7 +119,7 @@ export function SolutionAreaPage({ service, onOpenBooking }: { service: ServiceI
     <div className="shell area-content">
       <section className="area-services" id="servicios" aria-labelledby="area-services-title">
         <div className="area-section-intro"><h2 id="area-services-title">{es ? '¿Qué necesitas resolver?' : 'What do you need to solve?'}</h2><p>{es ? 'Elige el reto que reconoces en tu negocio.' : 'Choose the challenge you recognize in your business.'}</p></div>
-        <AreaServiceExplorer key={service.id} offerings={content.offerings} es={es} />
+        <AreaServiceExplorer key={service.id} offerings={content.offerings} areaId={service.id} es={es} />
       </section>
     </div>
     <nav className="area-related" aria-label={es ? 'Otras áreas de soluciones' : 'Other solution areas'}>

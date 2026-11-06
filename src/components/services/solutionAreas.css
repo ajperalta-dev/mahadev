@@ -75,8 +75,6 @@
 .area-page .button { text-transform:uppercase; letter-spacing:.04em; font-size:13px; }
 .area-hero .button-primary { border-color:#fff; background:#fff; color:#000; }
 .area-hero-link { display:inline-flex; min-height:48px; align-items:center; gap:10px; padding:0; border:0; background:transparent; color:#fff; font-size:14px; font-weight:600; transition:opacity .2s ease; }
-.area-photo-credit { align-self:flex-end; color:rgba(255,255,255,.76); font-size:var(--type-caption); }
-.area-photo-credit:hover { color:#fff; }
 .area-content { padding-block:56px 64px; }
 .area-services { scroll-margin-top:100px; }
 .area-section-intro { display:grid; grid-template-columns:1fr .8fr; align-items:end; gap:52px; padding-bottom:26px; }
@@ -172,7 +170,6 @@
   .area-header-actions { align-items:flex-start; flex-direction:column; gap:8px; margin-top:22px; }
   .area-page .button { min-height:46px; padding:11px 18px; font-size:12px; }
   .area-hero-link { min-height:40px; font-size:12px; }
-  .area-photo-credit { align-self:flex-start; font-size:var(--type-caption); }
   .area-content { padding-block:36px 44px; }
   .area-section-intro h2 { font-size:clamp(26px,7vw,34px); }
   .area-section-intro { grid-template-columns:1fr; gap:12px; padding-bottom:22px; }

@@ -1,0 +1,23 @@
+{
+  "name": "ALPHA",
+  "colors": [
+    {
+      "name": "Negro",
+      "hex": "#000000",
+      "rgb": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Blanco",
+      "hex": "#FFFFFF",
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    }
+  ]
+}

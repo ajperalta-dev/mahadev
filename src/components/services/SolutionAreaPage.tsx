@@ -5,24 +5,18 @@ import { solutionAreaDetails } from '../../data/solutionAreaDetails';
 import type { ServiceItem } from '../../types';
 import { AreaServiceExplorer } from './AreaServiceExplorer';
 
-const areaPhotography: Record<string, { src: string; alt: { es: string; en: string }; credit: string; source: string }> = {
+const areaPhotography: Record<string, { src: string; alt: { es: string; en: string } }> = {
   'digital-transformation-assessment': {
     src: 'https://images.pexels.com/photos/17489157/pexels-photo-17489157.jpeg?auto=compress&dpr=1&h=1500&w=2200',
     alt: { es: 'Infraestructura digital: rack de servidores con indicadores luminosos y equipos de almacenamiento de datos.', en: 'Digital infrastructure: server rack with illuminated indicators and data storage equipment.' },
-    credit: 'panumas nikhomkhai / Pexels',
-    source: 'https://www.pexels.com/photo/close-up-of-computer-hardware-17489157/',
   },
   'ai-industry-40': {
     src: 'https://images.pexels.com/photos/18471441/pexels-photo-18471441/free-photo-of-robots-are-working-in-a-factory-with-a-machine.jpeg?auto=compress&dpr=1&h=1500&w=2200',
     alt: { es: 'Brazos robóticos automatizados en un entorno de control industrial.', en: 'Automated robotic arms inside an industrial control environment.' },
-    credit: 'Ludovic Delot / Pexels',
-    source: 'https://www.pexels.com/photo/robots-are-working-in-a-factory-with-a-machine-18471441/',
   },
   'transformation-partner': {
     src: 'https://images.pexels.com/photos/7648467/pexels-photo-7648467.jpeg?auto=compress&dpr=1&h=1500&w=2200',
     alt: { es: 'Sala de reuniones preparada para una sesión de trabajo, con proyector, gráficos y mesa de trabajo.', en: 'A meeting room set up for a working session, with a projector, charts and a conference table.' },
-    credit: 'RDNE Stock project / Pexels',
-    source: 'https://www.pexels.com/photo/empty-conference-room-7648467/',
   },
 };
 
@@ -113,7 +107,6 @@ export function SolutionAreaPage({ service, onOpenBooking }: { service: ServiceI
             <button className="area-hero-link" onClick={() => onOpenBooking(service.title[lang])}>{es ? 'Hablemos' : 'Let’s talk'}<ArrowUpRight size={18} /></button>
           </div>
         </div>
-        <a className="area-photo-credit" href={photo.source} target="_blank" rel="noreferrer">{es ? 'Fotografía' : 'Photography'}: {photo.credit}</a>
       </div>
     </header>}
     <div className="shell area-content">

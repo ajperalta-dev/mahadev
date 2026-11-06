@@ -195,9 +195,10 @@ p { text-wrap: pretty; }
 .service-card:hover .service-media .service-animation { transform:translateY(-3px); }
 .service-media-caption { position:absolute; bottom:10px; left:16px; right:16px; text-align:center; font-size:11px; line-height:1.4; color:var(--muted); }
 .service-card-content { display:flex; flex-direction:column; padding:19px; flex:1; }
-.service-card:is(:hover,:focus-within) .service-flow { stroke-dasharray:5 8; animation:flow 3s linear infinite; }
-.service-card:is(:hover,:focus-within) .service-bar { transform-box:fill-box; transform-origin:bottom; animation:bar-grow 3s ease-in-out infinite; }
-.service-card:is(:hover,:focus-within) .service-draw { stroke-dasharray:100; animation:draw-line 4s ease-in-out infinite; }
+.solution-card .service-flow { stroke-dasharray:5 8; animation:flow 3s linear infinite; }
+.solution-card .service-bar { transform-box:fill-box; transform-origin:bottom; animation:bar-grow 3s ease-in-out infinite; }
+.solution-card .service-draw { stroke-dasharray:100; animation:draw-line 4s ease-in-out infinite; }
+.solution-card .service-node { animation:node-pulse 3s ease-in-out infinite; }
 .service-card-top { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
 .service-icon { width:30px; height:30px; display:grid; place-items:center; color:var(--ink); }
 .service-icon svg { width:20px; height:20px; }

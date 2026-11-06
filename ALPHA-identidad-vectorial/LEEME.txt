@@ -1,0 +1,44 @@
+ALPHA — PAQUETE DE IDENTIDAD VECTORIAL
+
+Procedencia
+Vectorización de Logotipo_Alpha.png aportado por el usuario. Se conservan los contornos
+de las letras: A sin barra, P abierta, L curva y H de esquinas suaves.
+El isotipo y las variantes se mantienen consistentes en todo el paquete.
+
+Contenido
+- alpha-isotipo-claro/oscuro.svg: círculo y tres curvas; fondo exterior transparente.
+- alpha-logotipo-claro/oscuro.svg: ALPHA geométrico, dibujado con trazados.
+- alpha-horizontal-claro/oscuro.svg: símbolo y nombre en composición horizontal.
+- alpha-favicon-claro/oscuro.svg: lienzo 32 × 32; símbolo con margen de 2 px.
+- alpha-favicon-auto.svg: cambia a la versión inversa según el tema del sistema.
+- alpha-app-icon-claro/oscuro.svg: lienzo opaco de 1024 × 1024, sin máscara de esquinas.
+- alpha-paleta.svg: muestras y códigos RGB/HEX.
+- alpha-vista-general.svg y .png: lámina de consulta; no usar como archivo de logo.
+- alpha-paleta.json: valores de color para integración.
+
+Versiones
+«claro»: marca negra para colocar sobre un fondo claro.
+«oscuro»: marca blanca para colocar sobre un fondo oscuro.
+El isotipo principal es un círculo negro con tres curvas blancas.
+En la versión inversa el círculo es blanco y las curvas son negras.
+Los iconos de aplicación incluyen fondo; las marcas y favicons tienen fondo exterior transparente.
+
+Paleta
+Negro: #000000 / RGB 0, 0, 0.
+Blanco: #FFFFFF / RGB 255, 255, 255.
+El gris de la lámina es solo un fondo de presentación y no forma parte de la paleta.
+
+Uso
+Conservar las proporciones, el espaciado y la orientación de las tres curvas.
+Margen exterior recomendado: al menos 1/4 del diámetro del círculo.
+En la composición horizontal, reservar ese margen alrededor de toda la marca.
+Como punto de partida, utilizar el símbolo a 24 px o más; el favicon admite 16 px.
+Para el conjunto horizontal se recomienda un ancho de 176 px o más.
+Comprobar siempre el resultado en el soporte y tamaño finales.
+El icono de app es un original SVG; cada plataforma puede exigir exportaciones PNG.
+
+Edición
+Todos los elementos de marca son geometría vectorial con rellenos.
+El logotipo no depende de una fuente instalada. Los rótulos de la paleta y lámina
+también están convertidos a contornos. No hay mapas de bits incrustados ni enlaces externos.
+Los SVG se pueden abrir en editores vectoriales y navegadores compatibles.

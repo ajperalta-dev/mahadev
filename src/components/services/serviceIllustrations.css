@@ -24,6 +24,7 @@
 .ill-verified { fill:#000; }
 .ill-dashboard-bars rect { transform-box:fill-box; transform-origin:bottom; animation:illustration-grow .9s calc(var(--scene-step,0) * .1s) cubic-bezier(.2,.8,.2,1) both; }
 .ill-dashboard-donut { fill:none; stroke:#fff; stroke-width:10; stroke-dasharray:.72 1; stroke-dashoffset:.72; transform:rotate(-90deg); transform-origin:405px 126px; animation:illustration-draw 1.4s .25s ease-out forwards; }
+.ill-dashboard-live { fill:#fff; stroke:none; filter:drop-shadow(0 0 4px rgba(255,255,255,.8)); animation:dashboard-live 3.2s ease-in-out infinite; }
 .ill-automation-gear { transform-box:fill-box; transform-origin:center; animation:illustration-rotate 7s linear infinite; }
 .ill-automation-gear.reverse { animation-direction:reverse; }
 .ill-automation-task { animation:automation-task 4.5s ease-in-out infinite; }
@@ -43,7 +44,7 @@
 .ill-forecast-point { animation:forecast-project 5s ease-in-out infinite; }
 .ill-motor-spin { transform-box:fill-box; transform-origin:center; animation:illustration-rotate 8s linear infinite; }
 .ill-maintenance-alert { fill:none; stroke:#fff; transform-box:fill-box; transform-origin:center; animation:equipment-alert 4.8s ease-in-out infinite; }
-.ill-vibration { stroke-width:2; }
+.service-illustration .ill-vibration { stroke-width:2; stroke-dasharray:.16 .045; stroke-dashoffset:1; animation:vibration-signal 2.4s linear infinite; }
 .ill-industrial-data { stroke:rgba(255,255,255,.7); stroke-dasharray:3 9; animation:illustration-stream 2.5s linear infinite; }
 .ill-conveyor-box { animation:conveyor-move 5s linear infinite; }
 
@@ -54,7 +55,7 @@
 .ill-implementation-progress { stroke-dasharray:1; stroke-dashoffset:1; animation:implementation-progress 6s ease-in-out infinite; }
 .ill-training-transfer { stroke:rgba(255,255,255,.6); stroke-dasharray:3 10; animation:illustration-stream 2.2s linear infinite; }
 .ill-training-person { animation:training-transfer 4.8s calc(var(--scene-step,0) * .6s) ease-in-out infinite; }
-.ill-governance-check { stroke-dasharray:40; stroke-dashoffset:40; animation:illustration-draw .7s .9s ease-out forwards; }
+.service-illustration .ill-governance-check { stroke-dasharray:3 9; stroke-dashoffset:0; animation:illustration-stream 2.8s linear infinite; }
 .ill-improvement-cycle { transform-origin:0 0; animation:illustration-rotate 12s linear infinite; }
 .ill-improvement-point { transform-box:fill-box; transform-origin:center; animation:roadmap-milestone 4s ease-in-out infinite; }
 
@@ -62,6 +63,8 @@
 @keyframes illustration-draw { to { stroke-dashoffset:0; } }
 @keyframes illustration-grow { from { transform:scaleY(.06); opacity:.2; } to { transform:scaleY(1); opacity:1; } }
 @keyframes illustration-stream { to { stroke-dashoffset:-56; } }
+@keyframes dashboard-live { 0%,8% { transform:translateX(0); opacity:0; } 14% { opacity:1; } 48% { transform:translateX(205px); opacity:1; } 56%,100% { transform:translateX(205px); opacity:0; } }
+@keyframes vibration-signal { to { stroke-dashoffset:-1; } }
 @keyframes illustration-rotate { to { transform:rotate(360deg); } }
 @keyframes audit-scan { 0%,12% { transform:translateY(0); opacity:.25; } 85%,100% { transform:translateY(89px); opacity:1; } }
 @keyframes audit-lens { 0%,15% { transform:translate(-38px,-18px); } 85%,100% { transform:translate(0,0); } }

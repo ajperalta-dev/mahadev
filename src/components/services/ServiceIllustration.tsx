@@ -111,6 +111,7 @@ function IllustrationScene({ scene, es }: { scene: Scene; es: boolean }) {
         {[83, 218, 353].map((x, index) => <Reveal key={x} step={index}><rect className="ill-muted" x={x} y="28" width="119" height="43" rx="4" /><path className="ill-muted" d={`M${x + 12} 40H${x + 61}`} /><path d={`M${x + 12} 56H${x + 44}`} strokeWidth="4" /></Reveal>)}
         <path className="ill-muted" d="M89 164H302M89 105H302M89 135H302" />
         <g className="ill-dashboard-bars">{[35, 59, 45, 73, 62, 84].map((height, index) => <rect key={index} className="ill-solid" style={sequence(index)} x={100 + index * 34} y={164 - height} width="18" height={height} rx="2" />)}</g>
+        <circle className="ill-dashboard-live" cx="89" cy="135" r="4" />
         <circle className="ill-muted" cx="405" cy="126" r="34" strokeWidth="10" /><circle className="ill-dashboard-donut" cx="405" cy="126" r="34" pathLength={1} />
         <Check x={392} y={113} width={26} height={26} />
       </>;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSectionReveal } from './hooks/useSectionReveal';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -19,6 +19,13 @@ import { SolutionAreaPage } from './components/services/SolutionAreaPage';
 
 export function AppContent() {
   const pathname = window.location.pathname.replace(/\/$/, '');
+  const canonicalUrl = new URL(pathname || '/', 'https://www.mahadev.work').href;
+  useEffect(() => {
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = canonicalUrl;
+    const socialUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
+    if (socialUrl) socialUrl.content = canonicalUrl;
+  }, [canonicalUrl]);
   const isAbout = pathname === '/nosotros';
   const { lang, services } = useLanguage();
   const serviceId = pathname.match(/^\/soluciones\/([^/]+)$/)?.[1];
